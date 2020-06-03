@@ -1,0 +1,28 @@
+---
+title: getting started with react native!
+path: /blog/2020/getting-started-with-react-native/
+date: 2020-06-03
+---
+
+###  Getting started with react native!
+
+`<StaticQuery
+    query={
+        graphql'
+            query MyQuery {
+                allMdx {
+                    edges {
+                    node {
+                        frontmatter {
+                        date(fromNow: true)
+                        path
+                        title
+                        }
+                    }
+                    }
+                }
+            }
+    '   }
+/>`
+
+sample post data formatted more
