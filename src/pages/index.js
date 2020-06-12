@@ -6,9 +6,10 @@ import { dribbble, twitter, medium, instagram } from "react-icons-kit/fa";
 import Loading from "../components/Loading";
 import Header from '../components/header'
 import { StaticQuery, graphql } from 'gatsby'
+import Layout from "../layouts";
 
 const Home = () => (
-    <>
+    <Layout>
         <StaticQuery
             query={
                 graphql`
@@ -29,9 +30,7 @@ const Home = () => (
            `
             }
             render={data => (
-                <Wrapper>
-                    {/* <Loading /> */}
-                    <Header />
+                <Wrapper> 
                     <MainSection>
                         <Hand>🖐</Hand>
                         <h1 className="title">
@@ -99,7 +98,7 @@ const Home = () => (
                 </Wrapper>
             )}
         />
-    </>
+    </Layout>
 )
 
 export default Home;
@@ -125,13 +124,13 @@ const Wrapper = styled.div`
 const MainSection = styled.main`
   max-width: 1030px;
   margin: auto;
-  padding: 0px 20px;
-`;
+  padding: 0px 20px; 
+  `;
 
 const Motto = styled.div`
   i {
     padding: 5px;
-    border-left: 2px solid #0000ee;
+    border-left: 2px solid #ffd56a;
   }
 `;
 const Details = styled.div`

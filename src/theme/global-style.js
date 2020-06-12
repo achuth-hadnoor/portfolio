@@ -1,11 +1,60 @@
-html {
-  font-family: sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+import { createGlobalStyle } from 'styled-components'
+import reset from 'styled-reset'
+export const theme = {
+    light: {
+        background: {
+            primary: '#252538',
+        },
+        color: {
+            primary: '#eee'
+        }
+    },
+    dark: {
+        background: {
+            primary: '#eee',
+            accent:'#ffd56a'
+        },
+        color: {
+            primary: '#1a202c'
+        }
+    }
 }
-body {
-  margin: 0;
-}
+
+export const GlobalStyle = createGlobalStyle`
+  ${reset}
+  @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+  *, *:before, *:after {
+    box-sizing: border-box;
+  }
+  html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px; 
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    color: ${props => props.theme.color.primary};
+  }
+  body {
+    margin: 0;
+    margin: auto;
+    font-family: "Poppins", sans-serif;
+    /* background: #1a202c; */
+    background: linear-gradient(
+        127.77deg,
+        #272348 0.62%,
+        rgb(38 41 53 / 89%) 72.58%
+    );
+    color: #efefef; 
+    font-weight: normal;
+    word-wrap: break-word;
+    font-kerning: normal;
+    -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+    -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+    -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+    font-feature-settings: "kern", "liga", "clig", "calt";
+    background-color:${props => props.theme.background.primary};
+  } 
 article,
 aside,
 details,
@@ -195,17 +244,6 @@ html {
 }
 *:after {
   box-sizing: inherit;
-}
-body {
-  color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
-  font-weight: normal;
-  word-wrap: break-word;
-  font-kerning: normal;
-  -moz-font-feature-settings: "kern", "liga", "clig", "calt";
-  -ms-font-feature-settings: "kern", "liga", "clig", "calt";
-  -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
-  font-feature-settings: "kern", "liga", "clig", "calt";
 }
 img {
   max-width: 100%;
@@ -622,19 +660,16 @@ pre tt:after {
     font-size: 100%;
   }
 }
+/*App styles */ 
 
-
-@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
-* {
-  font-family: "Poppins", sans-serif;
-}
 ::-webkit-scrollbar {
   width: 14px;
   height: 14px;
+  background:${props=>props.theme.background.primary}
 }
 
-::-webkit-scrollbar-track {
-  background-color: transparent;
+::-webkit-scrollbar-track {;
+  background:${props=>props.theme.background.primary}
 }
 
 ::-webkit-scrollbar-thumb,
@@ -656,20 +691,7 @@ pre tt:after {
 
 ::-webkit-scrollbar-corner {
   background-color: transparent;
-}
-html,
-body {
-  margin: 0;
-  margin: auto;
-  font-family: "Poppins", sans-serif;
-  /* background: #1a202c; */
-  background: linear-gradient(
-    127.77deg,
-    #272348 0.62%,
-    rgb(38 41 53 / 89%) 72.58%
-  );
-  color: #efefef;
-}
+} 
 #root {
   display: flex;
   flex-direction: column;
@@ -730,7 +752,6 @@ h1 {
   margin-top: -5px;
   content: "";
   z-index: -1;
-  background: #ffd56a !important;
 }
 
 ul {
@@ -828,3 +849,5 @@ p.footer {
   color: #868e96;
   text-align: right;
 }
+
+`
