@@ -2,8 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Icon from 'react-icons-kit';
 import { dribbble } from 'react-icons-kit/fa';
-import { github, twitter, chevronRight, instagram } from 'react-icons-kit/feather';
-import { Link } from 'gatsby';
+import { github, twitter, chevronRight, instagram } from 'react-icons-kit/feather'; 
 export default class SideBar extends Component {
     render() {
         return (
@@ -12,16 +11,16 @@ export default class SideBar extends Component {
                 <Name>Achuth hadnoor</Name>
                 <Motto>" To be creative is to keep creating " <sub>- Motto</sub></Motto>
                 <div style={{ display: 'flex', marginTop: '10px' }}>
-                    <a href="https://dribbble.com/achuth_hadnoor" target="_blank" >
+                    <a href="https://dribbble.com/achuth_hadnoor" target="_blank" rel="noreferrer" >
                         <Icon icon={dribbble} style={{ padding: 10 }} />
                     </a>
-                    <a href="https://twitter.com/achuth_hadnoor" target="_blank" >
+                    <a href="https://twitter.com/achuth_hadnoor" target="_blank" rel="noreferrer" >
                         <Icon icon={twitter} style={{ padding: 10 }} />
                     </a>
-                    <a href="https://github.com/achuthhadnoor" target="_blank" >
+                    <a href="https://github.com/achuthhadnoor" target="_blank" rel="noreferrer" >
                         <Icon icon={github} style={{ padding: 10 }} />
                     </a>
-                    <a href="https://instagram.com/uiuxdx" target="_blank" >
+                    <a href="https://instagram.com/uiuxdx" target="_blank" rel="noreferrer">
                         <Icon icon={instagram} style={{ padding: 10 }} />
                     </a>
                 </div>

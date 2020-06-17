@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import styled from "styled-components";
-import Icon from "react-icons-kit";
-import { dribbble, twitter, medium, instagram } from "react-icons-kit/fa";
+import styled from "styled-components"; 
 import { StaticQuery, graphql } from 'gatsby'
 import Layout from "../layouts";
 
@@ -80,24 +78,4 @@ const MainSection = styled.main`
   margin: auto;
   padding: 0px 20px; 
   `;
-
-const Motto = styled.div`
-  i {
-    padding: 5px;
-    border-left: 2px solid #ffd56a;
-  }
-`;
-const Details = styled.div`
-  position: relative;
-  line-height: 1.7em;
-  max-width: 400px;
-  svg {
-    padding: 0px 10px;
-    border-right: 1px solid #aaa;
-    font-size: 16px;
-  }
-  margin-bottom: 100px;
-  a {
-    color: goldenrod;
-  }
-`; 
+ 

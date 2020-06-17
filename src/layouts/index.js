@@ -23,8 +23,7 @@ const Layout = ({ children }) => {
                                     }
                                 }
                         `}
-            render={data => {
-                console.log(value);
+            render={data => { 
                 return (
                     <ThemeContext.Provider value={{ value, setValue }}>
                         <ThemeProvider theme={value}>

@@ -4,10 +4,10 @@ const  { GlobalStyle, theme } = require('./src/theme/global-style')
 const  { ThemeContext } = require('./src/Hooks/theme-provider')
 
 const WrapRootElement = ({ element }) => {
-    const [value,setValue] = React.useState(theme.light)
+    const [value,setValue] = React.useState("light") 
     return (
     <ThemeContext.Provider value={{value,setValue}}>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={value === "light" ? theme.light : theme.dark }>
             <GlobalStyle />
              {element} 
         </ThemeProvider>
