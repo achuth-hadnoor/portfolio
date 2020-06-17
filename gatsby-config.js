@@ -11,7 +11,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-mdx`,
       options: {
-        defaultLayouts: { default: path.resolve('./src/layouts') },
+        defaultLayouts: { default: path.resolve('./src/layouts/blog.js') },
         blogLayouts: { default: path.resolve('./src/layouts/blog.js') },
         postLayouts: { default: path.resolve('./src/layouts/post.js') },
       },

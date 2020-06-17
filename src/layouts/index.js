@@ -1,11 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
+
 import Header from '../components/header'
 
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyle, theme } from './../theme/global-style'
 import { ThemeContext } from './../Hooks/theme-provider'
+import SideBar from '../components/sidebar'
 
 const Layout = ({ children }) => {
     const [value, setValue] = React.useState(theme.light)
@@ -26,17 +29,13 @@ const Layout = ({ children }) => {
                     <ThemeContext.Provider value={{ value, setValue }}>
                         <ThemeProvider theme={value}>
                             <GlobalStyle />
-                            <Header />
-                            <div
-                                style={{
-                                    margin: '0 auto',
-                                    maxWidth: 960,
-                                    padding: '0px 1.0875rem 1.45rem',
-                                    paddingTop: 0,
-                                }}
-                            >
-                                {children}
-                            </div>
+                            <Wrapper>
+                                <Header />
+                                <ContentWrapper>
+                                    <SideBar/>
+                                    <Content>{children}</Content>
+                                </ContentWrapper>
+                            </Wrapper>
                         </ThemeProvider>
                     </ThemeContext.Provider>
                 )
@@ -50,3 +49,18 @@ Layout.propTypes = {
 }
 
 export default Layout
+
+const Wrapper = styled.div`
+display:flex;
+flex-direction:column;
+`;
+const ContentWrapper = styled.div`
+display:flex;
+@media only screen and (max-width: 600px) {
+  &{
+      flex-direction:column;
+  }
+}
+`;
+
+const Content = styled.div``

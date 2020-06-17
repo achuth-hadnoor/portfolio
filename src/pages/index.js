@@ -3,8 +3,6 @@ import { Link } from "gatsby";
 import styled from "styled-components";
 import Icon from "react-icons-kit";
 import { dribbble, twitter, medium, instagram } from "react-icons-kit/fa";
-import Loading from "../components/Loading";
-import Header from '../components/header'
 import { StaticQuery, graphql } from 'gatsby'
 import Layout from "../layouts";
 
@@ -13,7 +11,7 @@ const Home = () => (
         <StaticQuery
             query={
                 graphql`
-                    query MyQuery {
+                    query Pages {
                         allMdx {
                             edges {
                             node {
@@ -30,63 +28,19 @@ const Home = () => (
            `
             }
             render={data => (
-                <Wrapper> 
+                <Wrapper>
                     <MainSection>
-                        <Hand>🖐</Hand>
-                        <h1 className="title">
-                            <div>
-                                <span className="line-bg">Namaste!,</span>
-                            </div>
-                            <span className="line-bg">I'm Achuth!</span>
-                            <br />
-                            <span className="line-bg">
-                                A full - time developer,
-              <br />
-                            </span>
-                            <span className="line-bg">
-                                wanna be Designer and an {""}
-                                <a href="https://snipper.netlify.com">
-                                    indie maker
-              </a>
-                            </span>
-                        </h1>
-                        <Motto>
-                            <i>" To be creative is to keep Creating "</i>
-                            <sub>- Motto</sub>
-                        </Motto>
-                        <Details>
-                            <p>
-                                Achuth hadnoor is a designer developer and an indie maker. Since
-              2018 he launched apps as an{" "}
-                                <a href="https://producthunt.com/@achuthhadnoor" >
-                                    indie maker
-              </a>
-              .
-            </p>
-                            <h5>Follow my Journey</h5>
-                            <a href="https://dribbble.com/achuth_hadnoor"  >
-                                <Icon icon={dribbble} />
-                            </a>
-                            <a href="https://twitter.com/achuth_hadnoor" >
-                                <Icon icon={twitter} />
-                            </a>
-                            <a href="https://medium.com/@achuth.hadnoor"  >
-                                <Icon icon={medium} />
-                            </a>
-                            <a href="https://www.instagram.com/uiuxdx" >
-                                <Icon icon={instagram} />
-                            </a>
-                        </Details>
+               
                     </MainSection>
                     <Section>
-                        <h2 style={{ color: "goldenrod" }}>Articles</h2> 
+                        <h2 style={{ color: "goldenrod" }}>Articles</h2>
                         {
-                            data.allMdx.edges.map((posts,i) => {
+                            data.allMdx.edges.map((posts, i) => {
                                 var post = posts.node.frontmatter
                                 return (
-                                    <div key={i}>
-                                            <h3>{post.title}</h3>
-                                            <span>{post.date}</span>
+                                    <div key={i} style={{padding:10,lineHeight:2}}>
+                                        <h3>{post.title}</h3>
+                                        <span>{post.date}</span>
                                         <Link to={post.path}>
                                             Read more!
                                         </Link>
@@ -143,12 +97,7 @@ const Details = styled.div`
     font-size: 16px;
   }
   margin-bottom: 100px;
-  p a {
+  a {
     color: goldenrod;
   }
-`;
-const Hand = styled.span`
-font-size:72px;
-transform:rotate(45deg);
-
-`
+`; 
