@@ -20,10 +20,10 @@ export const theme = {
         }
     }
 }
+// @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
 export const GlobalStyle = createGlobalStyle`
   ${reset}
-  @import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
   *, *:before, *:after {
     box-sizing: border-box;
   }
@@ -32,12 +32,17 @@ export const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;  
     color: ${props => props.theme.color.primary};
   }
-  body {
-    margin: 0;
+  body { 
     margin: auto;
     font-family: "Poppins", sans-serif; 
     background:linear-gradient(127.77deg, rgb(17 15 29) 0.62%, rgba(38, 41, 53, 0.89) 72.58%); 
     background-color:${props => props.theme.background.primary};
+    padding: 0px;
+    text-rendering: optimizelegibility;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    min-height: 100vh;
+    
   } 
 @media only screen and (max-width: 480px) {
   html { 
@@ -81,7 +86,7 @@ export const GlobalStyle = createGlobalStyle`
   position: relative;
 } 
 .App,
-#___gatsby {
+#___gatsby,#gatsby-focus-wrapper {
   position: relative;
   height: 100%;
 } 

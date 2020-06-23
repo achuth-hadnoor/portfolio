@@ -15,15 +15,32 @@ const Layout = ({ children }) => {
     return (
         <StaticQuery
             query={graphql`
-                                query SiteTitleQuery {
-                                    site {
-                                        siteMetadata {
-                                            title
-                                        }
-                                    }
+                   query postsData {
+                        allSite {
+                            edges {
+                            node {
+                                siteMetadata {
+                                title
+                                description
+                                author
                                 }
+                            }
+                            }
+                        }
+                        allMdx {
+                            edges {
+                            node {
+                                frontmatter {
+                                tags
+                                }
+                            }
+                            }
+                        }
+                        }
                         `}
-            render={data => { 
+            render={data => {
+                console.log(data);
+                
                 return (
                     <ThemeContext.Provider value={{ value, setValue }}>
                         <ThemeProvider theme={value}>
@@ -31,7 +48,7 @@ const Layout = ({ children }) => {
                             <Wrapper>
                                 <Header />
                                 <ContentWrapper>
-                                    <SideBar/>
+                                    <SideBar data={data}/>
                                     <Content>{children}</Content>
                                 </ContentWrapper>
                             </Wrapper>
@@ -52,6 +69,8 @@ export default Layout
 const Wrapper = styled.div`
 display:flex;
 flex-direction:column;
+max-width:1080px;
+margin:auto;
 `;
 const ContentWrapper = styled.div`
 display:flex;

@@ -17,6 +17,8 @@ const Home = () => (
                                 date(fromNow: true)
                                 path
                                 title
+                                tagline
+                                tags
                                 }
                             }
                             }
@@ -27,9 +29,6 @@ const Home = () => (
             }
             render={data => (
                 <Wrapper>
-                    <MainSection>
-               
-                    </MainSection>
                     <Section>
                         <h2 style={{ color: "goldenrod" }}>Articles</h2>
                         {
@@ -37,9 +36,17 @@ const Home = () => (
                                 var post = posts.node.frontmatter
                                 return (
                                     <div key={i} style={{padding:10,lineHeight:2}}>
-                                        <h3>{post.title}</h3>
+                                        <h2>{post.title}</h2>
                                         <span>{post.date}</span>
-                                        <Link to={post.path}>
+                                          <p>{post.tagline}</p>
+                                          <ul style={{display:'flex',listStyle:'none'}}>
+                                              {
+                                               post.tags ? post.tags.map((t,i)=><li key={i} index={"key-"+i} 
+                                               style={{padding:'5px 10px',margin:5,fontSize:12,background:'repeating-linear-gradient(45deg, black, transparent 100px)',borderRadius:5}}>{t}</li>) : null
+                                              }
+                                          </ul>
+                                        <Link to={post.path} 
+                                            style={{color:'rebeccapurple'}}>
                                             Read more!
                                         </Link>
                                     </div>
@@ -71,11 +78,4 @@ const Section = styled.section`
 const Wrapper = styled.div`
   position: relative;
   height: 100%;
-`;
-
-const MainSection = styled.main`
-  max-width: 1030px;
-  margin: auto;
-  padding: 0px 20px; 
-  `;
- 
+`; 

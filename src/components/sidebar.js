@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import Icon from 'react-icons-kit';
 import { dribbble } from 'react-icons-kit/fa';
-import { github, twitter, chevronRight, instagram } from 'react-icons-kit/feather'; 
+import { github, twitter, chevronRight, instagram } from 'react-icons-kit/feather';
 export default class SideBar extends Component {
-    render() {
+    render() {  
         return (
             <SideBarWrapper>
                 <Image></Image>
@@ -33,17 +33,7 @@ export default class SideBar extends Component {
                     <Button type="submit" onClick={() => { }}>
                         <Icon icon={chevronRight} />
                     </Button>
-                </Form>
-                <TagsWrapper>
-                    <div className="popular_tags">Popular Tags</div>
-                    <ul className="tagsWrapper">
-                        <li># reactJs</li>
-                        <li># reactJs</li>
-                        <li># reactJs</li>
-                        <li># reactJs</li>
-                        <li># reactJs</li>
-                    </ul>
-                </TagsWrapper>
+                </Form> 
             </SideBarWrapper>
         )
     }
@@ -52,6 +42,7 @@ export default class SideBar extends Component {
 
 const SideBarWrapper = styled.div` 
 padding:10px; 
+width:350px;
 .tagsWrapper {
     list-syle:none;
     li{
