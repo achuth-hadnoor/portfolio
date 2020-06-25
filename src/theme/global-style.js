@@ -1,8 +1,9 @@
-import { createGlobalStyle } from 'styled-components'
+import React from 'react'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import reset from 'styled-reset'
 export const theme = {
     light: {
-    accent: '#ffd56a',
+        accent: '#ffd56a',
         background: {
             primary: '#252538'
         },
@@ -11,7 +12,7 @@ export const theme = {
         }
     },
     dark: {
-    accent: '#ffd56a',
+        accent: '#ffd56a',
         background: {
             primary: '#eee'
         },
@@ -95,3 +96,16 @@ a{
     color:inherit;
 }
 `
+
+const ContextTheme = React.createContext();
+export const ThemeWrapper = ({children}) => {
+    const [value, setValue] = React.useState(theme.light);
+    return (
+        <ContextTheme.Provider value={{ value, setValue }}>
+            <ThemeProvider theme={value}>
+                <GlobalStyle />
+                {children}
+            </ThemeProvider>
+        </ContextTheme.Provider>
+    )
+}

@@ -1,43 +1,42 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import Icon from 'react-icons-kit';
 import { dribbble } from 'react-icons-kit/fa';
 import { github, twitter, chevronRight, instagram } from 'react-icons-kit/feather';
-export default class SideBar extends Component {
-    render() {  
-        return (
-            <SideBarWrapper>
-                <Image></Image>
-                <Name>Achuth hadnoor</Name>
-                <Motto>" To be creative is to keep creating " <sub>- Motto</sub></Motto>
-                <div style={{ display: 'flex', marginTop: '10px' }}>
-                    <a href="https://dribbble.com/achuth_hadnoor" target="_blank" rel="noreferrer" >
-                        <Icon icon={dribbble} style={{ padding: 10 }} />
-                    </a>
-                    <a href="https://twitter.com/achuth_hadnoor" target="_blank" rel="noreferrer" >
-                        <Icon icon={twitter} style={{ padding: 10 }} />
-                    </a>
-                    <a href="https://github.com/achuthhadnoor" target="_blank" rel="noreferrer" >
-                        <Icon icon={github} style={{ padding: 10 }} />
-                    </a>
-                    <a href="https://instagram.com/uiuxdx" target="_blank" rel="noreferrer">
-                        <Icon icon={instagram} style={{ padding: 10 }} />
-                    </a>
-                </div>
+export default () => {
+    return (
+        <SideBarWrapper>
+            <Image></Image>
+            <Name>Achuth hadnoor</Name>
+            <Motto>" To be creative is to keep creating " <sub>- Motto</sub></Motto>
+            <div style={{ display: 'flex', marginTop: '10px' }}>
+                <a href="https://dribbble.com/achuth_hadnoor" target="_blank" rel="noreferrer" >
+                    <Icon icon={dribbble} style={{ padding: 10 }} />
+                </a>
+                <a href="https://twitter.com/achuth_hadnoor" target="_blank" rel="noreferrer" >
+                    <Icon icon={twitter} style={{ padding: 10 }} />
+                </a>
+                <a href="https://github.com/achuthhadnoor" target="_blank" rel="noreferrer" >
+                    <Icon icon={github} style={{ padding: 10 }} />
+                </a>
+                <a href="https://instagram.com/uiuxdx" target="_blank" rel="noreferrer">
+                    <Icon icon={instagram} style={{ padding: 10 }} />
+                </a>
+            </div>
+            <About>A  developer, UI/UX designer and indie maker</About>
+            <Form onSubmit={() => {
+                debugger;
+            }}>
+                <Input type="email" placeholder="Subscribe to my newsletter" />
+                <Button type="submit" onClick={() => { }}>
+                    <Icon icon={chevronRight} />
+                </Button>
+            </Form>
+        </SideBarWrapper>
 
-                <About>A full-stack developer, UI/UX designer and indie maker</About>
-                <Form onSubmit={() => {
-                    debugger;
-                }}>
-                    <Input type="email" placeholder="Subscribe to my newsletter" />
-                    <Button type="submit" onClick={() => { }}>
-                        <Icon icon={chevronRight} />
-                    </Button>
-                </Form> 
-            </SideBarWrapper>
-        )
-    }
+    )
 }
+
 
 
 const SideBarWrapper = styled.div` 
@@ -101,15 +100,15 @@ const Button = styled.button`
     border-radius: 0px 5px 5px 0px;
 `;
 
-const TagsWrapper = styled.div`
-    .popular_tags{
-        color: ${props => props.theme.accent};
-        padding:10px;
-    }    
-    .tagsWrapper{
-        list-style:none;
-        li{
-            display:inline-block;
-        }
-    }
-`
+// const TagsWrapper = styled.div`
+//     .popular_tags{
+//         color: ${props => props.theme.accent};
+//         padding:10px;
+//     }    
+//     .tagsWrapper{
+//         list-style:none;
+//         li{
+//             display:inline-block;
+//         }
+//     }
+// `
